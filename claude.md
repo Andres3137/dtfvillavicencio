@@ -1,0 +1,5 @@
+-piensa antes de actuar.lee archivos antes de escribir codigo
+-edita solo lo que cambia, no reescribas archivos enteros.
+-no releas archivos que ya hayas leido salvo que hayan cambiado
+-no repitas codigo sin cambios en tus respuestas
+-sin preambulos, sin resumenes
