@@ -57,7 +57,7 @@ export default function Footer() {
             <a
               href={WA_HREF}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 self-start px-5 py-2.5 rounded-full font-mono-ui text-[11px] tracking-widest transition-all duration-300 hover:scale-[1.02]"
               style={{ background: '#FFCA02', color: '#0D0D12', boxShadow: '0 8px 32px rgba(255,202,2,0.25)' }}
             >
@@ -67,9 +67,9 @@ export default function Footer() {
             </a>
             <div className="flex gap-2.5">
               <a
-                href="https://www.instagram.com/dtf_villavicencio"
+                href="https://www.instagram.com/dtfvillavicenciocol?igsh=NnQwMWJlNmxtZ2xl"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 aria-label="Instagram"
                 className="w-9 h-9 rounded-full flex items-center justify-center text-white/55 hover:text-champagne transition-all duration-300"
                 style={{ border: '1px solid rgba(255,255,255,0.12)' }}
@@ -77,9 +77,9 @@ export default function Footer() {
                 <Instagram size={14} />
               </a>
               <a
-                href="https://www.tiktok.com/@dtf_villavicencio"
+                href="https://www.tiktok.com/@dtfvillavicencio?_r=1&_t=ZS-97hHjVTRhIm"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 aria-label="TikTok"
                 className="w-9 h-9 rounded-full flex items-center justify-center text-white/55 hover:text-champagne transition-all duration-300"
                 style={{ border: '1px solid rgba(255,255,255,0.12)' }}

@@ -154,7 +154,7 @@ export default function Location() {
             <a
               href="https://maps.google.com/?q=DTF+VILLAVICENCIO&ll=4.148601,-73.637744"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="btn-primary btn-magnetic flex items-center justify-center gap-2 mt-2"
             >
               <Navigation size={13} />

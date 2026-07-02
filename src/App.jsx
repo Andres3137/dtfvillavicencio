@@ -18,7 +18,7 @@ function WhatsAppButton() {
     <a
       href="https://api.whatsapp.com/send?phone=573124714116&text=%20%F0%9F%92%AB%C2%A1Hola!%20%0AEstoy%20interesado%2Fa%20en%20conocer%20m%C3%A1s%20detalles.%F0%9F%8E%A8"
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
       aria-label="Contactar por WhatsApp"
       className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition-transform duration-300 hover:scale-110"
       style={{ background: '#25D366', boxShadow: '0 4px 24px rgba(37,211,102,0.4)' }}

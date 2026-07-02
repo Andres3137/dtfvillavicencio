@@ -36,19 +36,20 @@ export default function CTAForm() {
     e.preventDefault()
 
     const msg =
-      `🖨️ *Solicitud de asesoramiento DTF Villavicencio*\n\n` +
-      `*Nombre:* ${form.name}\n` +
-      `*Empresa:* ${form.company || '—'}\n` +
-      `*WhatsApp:* ${form.whatsapp}\n` +
-      `*Servicio:* ${form.service}\n` +
-      `*Mensaje:* ${form.message || '—'}`
+      `Hola, me interesa solicitar asesoramiento para un proyecto de impresión DTF.\n\n` +
+      `Nombre: ${form.name}\n` +
+      `Empresa: ${form.company || '—'}\n` +
+      `Teléfono: ${form.whatsapp}\n` +
+      `Servicio de interés: ${form.service}\n\n` +
+      `Mensaje:\n${form.message || '—'}\n\n` +
+      `Quiero recibir más información.`
 
-    const url = `https://wa.me/573219423472?text=${encodeURIComponent(msg)}`
+    const url = `https://wa.me/573124714116?text=${encodeURIComponent(msg)}`
 
     gsap.to('.submit-btn', {
       scale: 0.95, duration: 0.1, yoyo: true, repeat: 1,
       onComplete: () => {
-        window.open(url, '_blank', 'noreferrer')
+        window.open(url, '_blank', 'noopener,noreferrer')
         setSent(true)
       },
     })

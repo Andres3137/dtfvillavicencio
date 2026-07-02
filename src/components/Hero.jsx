@@ -182,7 +182,7 @@ export default function Hero() {
           <a
             href="https://api.whatsapp.com/send?phone=573124714116&text=%20%F0%9F%92%AB%C2%A1Hola!%20%0AEstoy%20interesado%2Fa%20en%20conocer%20m%C3%A1s%20detalles.%F0%9F%8E%A8"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="btn-primary btn-magnetic flex items-center gap-2"
           >
             Solicitar presupuesto

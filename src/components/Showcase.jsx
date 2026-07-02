@@ -221,7 +221,7 @@ function ProductModal({ item, onClose }) {
               <a
                 href={WA_HREF(item.label)}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="relative z-10 btn-primary btn-magnetic w-full text-center block"
               >
                 Cotizar este diseño

@@ -356,7 +356,7 @@ export default function FAQ() {
           <a
             href="https://api.whatsapp.com/send?phone=573124714116&text=%20%F0%9F%92%AB%C2%A1Hola!%20%0ATengo%20una%20pregunta%20sobre%20sus%20servicios."
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
