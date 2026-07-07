@@ -112,22 +112,28 @@ function ProductModal({ item, onClose }) {
   const cardRef = useRef(null)
   const imgWrapRef = useRef(null)
 
+  const handleClose = () => {
+    if (!overlayRef.current || !cardRef.current) { onClose(); return }
+    gsap.to(cardRef.current, { opacity: 0, y: 16, scale: 0.97, duration: 0.18, ease: 'power2.in' })
+    gsap.to(overlayRef.current, { opacity: 0, duration: 0.18, ease: 'power2.in', onComplete: onClose })
+  }
+
   useEffect(() => {
     if (!item) return
     document.body.style.overflow = 'hidden'
-    gsap.fromTo(overlayRef.current, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: 'power2.out' })
+    gsap.fromTo(overlayRef.current, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: 'power2.out' })
     gsap.fromTo(
       cardRef.current,
-      { opacity: 0, y: 30, scale: 0.96 },
-      { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'power3.out' }
+      { opacity: 0, y: 20, scale: 0.97 },
+      { opacity: 1, y: 0, scale: 1, duration: 0.32, ease: 'power3.out' }
     )
-    const onKey = (e) => { if (e.key === 'Escape') onClose() }
+    const onKey = (e) => { if (e.key === 'Escape') handleClose() }
     window.addEventListener('keydown', onKey)
     return () => {
       document.body.style.overflow = ''
       window.removeEventListener('keydown', onKey)
     }
-  }, [item, onClose])
+  }, [item])
 
   const onMove = (e) => {
     if (!window.matchMedia('(hover: hover)').matches) return
@@ -145,9 +151,9 @@ function ProductModal({ item, onClose }) {
   return (
     <div
       ref={overlayRef}
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8 pt-24 md:pt-28"
-      style={{ background: 'rgba(8,8,12,0.7)', backdropFilter: 'blur(14px)' }}
-      onClick={onClose}
+      className="fixed inset-0 z-[100] flex items-start justify-center p-4 md:p-8 pt-[100px] md:pt-[110px] overflow-y-auto"
+      style={{ background: 'rgba(8,8,12,0.78)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', willChange: 'opacity' }}
+      onClick={handleClose}
       role="dialog"
       aria-modal="true"
     >
@@ -155,9 +161,10 @@ function ProductModal({ item, onClose }) {
         ref={cardRef}
         onClick={(e) => e.stopPropagation()}
         className="relative w-full max-w-5xl max-h-[92vh] overflow-hidden rounded-[2rem] glass-dark border-champagne-subtle shadow-cinematic flex flex-col md:flex-row"
+        style={{ willChange: 'transform, opacity' }}
       >
         <button
-          onClick={onClose}
+          onClick={handleClose}
           aria-label="Cerrar"
           className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full flex items-center justify-center glass-dark border-champagne-subtle text-ivory/80 hover:text-champagne transition-colors"
         >
@@ -167,7 +174,7 @@ function ProductModal({ item, onClose }) {
         <div
           ref={imgWrapRef}
           onMouseMove={onMove}
-          className="relative md:w-1/2 w-full aspect-[4/3] md:aspect-auto overflow-hidden group flex-shrink-0"
+          className="relative md:w-1/2 w-full aspect-[4/3] md:aspect-auto overflow-hidden group flex-shrink-0 rounded-b-[1.25rem] md:rounded-none"
         >
           <img
             src={item.src}
@@ -179,14 +186,14 @@ function ProductModal({ item, onClose }) {
           />
         </div>
 
-        <div className="md:w-1/2 w-full p-7 md:p-10 flex flex-col gap-6 overflow-y-auto">
-          <div>
+        <div className="md:w-1/2 w-full p-8 md:p-10 flex flex-col gap-7 md:gap-6 overflow-y-auto">
+          <div className="flex flex-col gap-3">
             <span className="font-mono-ui text-[10px] tracking-widest text-champagne">{item.tag}</span>
-            <h3 className="text-2xl md:text-3xl font-bold font-display text-ivory mt-2 leading-tight">
+            <h3 className="text-2xl md:text-3xl font-bold font-display text-ivory leading-tight">
               {item.label}
             </h3>
             {item.desc && (
-              <p className="text-sm text-ivory/70 leading-relaxed mt-3">{item.desc}</p>
+              <p className="text-sm text-ivory/70 leading-relaxed">{item.desc}</p>
             )}
           </div>
 
@@ -212,7 +219,7 @@ function ProductModal({ item, onClose }) {
             ))}
           </div>
 
-          <div className="mt-auto pt-2">
+          <div className="mt-auto pt-4">
             <div className="relative group">
               <div
                 className="absolute inset-0 -m-2 rounded-full pointer-events-none opacity-25 blur-lg transition-all duration-300 group-hover:opacity-50 group-hover:blur-xl"
@@ -222,7 +229,7 @@ function ProductModal({ item, onClose }) {
                 href={WA_HREF(item.label)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative z-10 btn-primary btn-magnetic w-full text-center block"
+                className="relative z-10 btn-primary btn-magnetic w-full text-center block !py-4 sm:!py-[0.875rem] !tracking-[0.08em] sm:!tracking-[0.12em]"
               >
                 Cotizar este diseño
               </a>
@@ -293,7 +300,7 @@ export default function Showcase() {
               type="button"
               onClick={() => setActive(it)}
               aria-label={`Ver ${label}`}
-              className="showcase-item img-shimmer group relative overflow-hidden rounded-[1.5rem] shadow-cinematic cursor-pointer text-left aspect-[4/5]"
+              className="showcase-item img-shimmer group relative overflow-hidden rounded-[2rem] shadow-cinematic cursor-pointer text-left aspect-[4/5]"
               style={{ transition: 'transform 0.25s cubic-bezier(0.4,0,0.2,1), box-shadow 0.25s ease' }}
               onMouseMove={tilt.onMouseMove}
               onMouseLeave={tilt.onMouseLeave}
@@ -317,7 +324,7 @@ export default function Showcase() {
               </div>
 
               <div
-                className="absolute inset-0 rounded-[1.5rem] border border-transparent group-hover:border-champagne/30 transition-colors duration-400 pointer-events-none"
+                className="absolute inset-0 rounded-[2rem] border border-transparent group-hover:border-champagne/30 transition-colors duration-400 pointer-events-none"
               />
             </button>
           )

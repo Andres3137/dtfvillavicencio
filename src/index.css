@@ -56,6 +56,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    padding-bottom: 0.08em;
   }
 
   .glass-dark {
@@ -178,6 +179,18 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: #B8860B;
+  }
+
+  .candres-link {
+    position: relative;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    transition: color 0.35s ease, text-shadow 0.35s ease;
+  }
+
+  .candres-link:hover {
+    color: #FFE066 !important;
+    text-shadow: 0 0 12px rgba(255, 202, 2, 0.55);
   }
 
   /* Shimmer sweep on hover */

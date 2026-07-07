@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -79,25 +79,17 @@ function ChevronIcon({ open }) {
 
 function FAQItem({ q, a, index }) {
   const [open, setOpen] = useState(false)
-  const bodyRef = useRef(null)
-  const [height, setHeight] = useState(0)
-
-  useEffect(() => {
-    if (bodyRef.current) {
-      setHeight(open ? bodyRef.current.scrollHeight : 0)
-    }
-  }, [open])
+  const toggle = useCallback(() => setOpen(v => !v), [])
 
   return (
     <div
       className="faq-item"
       style={{
         borderBottom: '1px solid rgba(0,0,0,0.07)',
-        overflow: 'hidden',
       }}
     >
       <button
-        onClick={() => setOpen(v => !v)}
+        onClick={toggle}
         style={{
           width: '100%',
           display: 'flex',
@@ -119,7 +111,7 @@ function FAQItem({ q, a, index }) {
             fontWeight: 600,
             color: open ? '#B8860B' : '#1A1A1A',
             lineHeight: 1.4,
-            transition: 'color 0.25s ease',
+            transition: 'color 0.22s ease',
           }}
         >
           {q}
@@ -129,24 +121,35 @@ function FAQItem({ q, a, index }) {
 
       <div
         style={{
-          height: `${height}px`,
-          overflow: 'hidden',
-          transition: 'height 0.38s cubic-bezier(0.4,0,0.2,1)',
+          display: 'grid',
+          gridTemplateRows: open ? '1fr' : '0fr',
+          transition: 'grid-template-rows 0.32s cubic-bezier(0.4,0,0.2,1)',
         }}
       >
-        <div ref={bodyRef} style={{ paddingBottom: '1.4rem' }}>
-          <p
+        <div style={{ overflow: 'hidden', minHeight: 0 }}>
+          <div
             style={{
-              fontFamily: "'Inter', sans-serif",
-              fontSize: '0.9rem',
-              color: 'rgba(26,26,26,0.62)',
-              lineHeight: 1.75,
-              margin: 0,
-              paddingRight: '2rem',
+              paddingBottom: '1.4rem',
+              opacity: open ? 1 : 0,
+              transform: open ? 'translateY(0)' : 'translateY(-4px)',
+              transition: 'opacity 0.28s ease, transform 0.28s cubic-bezier(0.4,0,0.2,1)',
+              transitionDelay: open ? '0.08s' : '0s',
+              willChange: 'opacity, transform',
             }}
           >
-            {a}
-          </p>
+            <p
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '0.9rem',
+                color: 'rgba(26,26,26,0.62)',
+                lineHeight: 1.75,
+                margin: 0,
+                paddingRight: '2rem',
+              }}
+            >
+              {a}
+            </p>
+          </div>
         </div>
       </div>
     </div>

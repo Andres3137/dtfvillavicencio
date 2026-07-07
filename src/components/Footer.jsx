@@ -140,9 +140,17 @@ export default function Footer() {
           style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}
         >
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="font-mono-ui text-[10px] text-white/45 tracking-widest">
-              Sistema operativo activo v1.0
+            <span className="font-mono-ui text-[9px] text-white/40 tracking-wider">
+              Diseñado y desarrollado por{' '}
+              <a
+                href="https://construyendoconandres.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="candres-link"
+                style={{ color: '#FFCA02' }}
+              >
+                CAndres
+              </a>
             </span>
           </div>
 

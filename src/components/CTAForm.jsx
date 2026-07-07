@@ -104,8 +104,8 @@ export default function CTAForm() {
             Hagamos que tu marca<br />se vea
           </h2>
           <h2
-            className="font-display text-gradient-champagne mt-1 leading-[1]"
-            style={{ fontSize: 'clamp(3.5rem, 9vw, 7rem)' }}
+            className="font-display text-gradient-champagne mt-1 leading-[1] px-2"
+            style={{ fontSize: 'clamp(2.75rem, 12vw, 7rem)', letterSpacing: '-0.04em' }}
           >
             INOLVIDABLE.
           </h2>

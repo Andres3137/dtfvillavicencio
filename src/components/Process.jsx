@@ -245,7 +245,7 @@ export default function Process() {
                 </span>
               </div>
 
-              <h3 className="font-display text-3xl text-gradient-champagne leading-none mb-4">
+              <h3 className="font-display text-3xl text-gradient-champagne leading-[1.15] mb-4">
                 {label}
               </h3>
 

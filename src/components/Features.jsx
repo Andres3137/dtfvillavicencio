@@ -1,125 +1,102 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Check, Shield, ScanLine, Sparkles, Layers, Droplet, Activity } from 'lucide-react'
+import { Check, Layers, ShieldCheck, Cpu, Flame, Palette } from 'lucide-react'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const BENEFITS = [
-  'Adherencia profesional a la tela',
-  'Colores vibrantes',
-  'Calidad en las imágenes',
-  'Impresiones sin bordes blancos',
-  'Consistencia en las impresiones',
-  'Tacto suave y flexible',
+const SERVICES = [
+  {
+    icon: Layers,
+    title: 'Impresión DTF Textil por Metro',
+    desc: 'Personalización premium sobre gran variedad de telas con resultados profesionales.',
+    points: [
+      'Colores vibrantes y alta definición',
+      'Resistencia +60 lavados',
+      'Ancho de impresión 58 cm',
+      'Retiro del film en caliente o en frío',
+    ],
+  },
+  {
+    icon: ShieldCheck,
+    title: 'DTF Textil Antimigración',
+    desc: 'Ideal para prendas oscuras en poliéster o mezclas con spandex.',
+    points: [
+      'Reduce la migración del color de la prenda',
+      'Colores vibrantes y alta definición',
+      'Resistencia +60 lavados',
+      'Ancho de impresión 58 cm',
+      'Retiro del film en caliente o en frío',
+    ],
+  },
+  {
+    icon: Cpu,
+    title: 'DTF UV para superficies rígidas',
+    desc: 'Vasos, termos, acrílico, vidrio, plástico, metal y más.',
+    points: [
+      'Acabado con relieve y barniz',
+      'Colores vibrantes y alta definición',
+      'Resistencia al agua',
+      'Ancho de impresión 29 cm',
+    ],
+  },
+  {
+    icon: Flame,
+    title: 'Servicio de Termofijado',
+    desc: 'Trae tus impresiones y hacemos el proceso con acabado profesional.',
+    points: [
+      'Acabado profesional garantizado',
+      'Ideal para emprendedores y marcas',
+      'Perfecto para producción por volumen',
+      'Ahorra tiempo y enfócate en vender',
+    ],
+  },
+  {
+    icon: Palette,
+    title: 'Servicio de Diseño',
+    desc: 'Apoyo profesional en la preparación y optimización de tus archivos.',
+    points: [
+      'Eliminación de fondos',
+      'Mejora de calidad y vectorización',
+      'Redibujo de diseños y semitonos',
+      'Diseños originales para estampado',
+    ],
+  },
 ]
 
-const TILES = [
-  { icon: ScanLine, title: 'Precisión 600 DPI', desc: 'Detalle fino real' },
-  { icon: Droplet, title: 'Adherencia premium', desc: 'Sin desprendimiento' },
-  { icon: Sparkles, title: 'Acabado uniforme', desc: 'Mate suave consistente' },
-  { icon: Layers, title: 'Consistencia', desc: 'Lote a lote idéntico' },
-]
-
-function MeritsCard() {
-  const ref = useRef(null)
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo('.benefit-item',
-        { opacity: 0, x: -20 },
-        { opacity: 1, x: 0, duration: 0.5, stagger: 0.08, ease: 'power3.out',
-          scrollTrigger: { trigger: ref.current, start: 'top 80%' } }
-      )
-    }, ref)
-    return () => ctx.revert()
-  }, [])
-
+function ServiceCard({ icon: Icon, title, desc, points }) {
   return (
-    <div ref={ref} className="relative glass-dark rounded-[2rem] p-10 lg:px-12 border-champagne-subtle shadow-cinematic h-full flex flex-col gap-6">
-      <img
-        src="/assets/camisetadiseño.webp"
-        alt=""
-        aria-hidden="true"
-        loading="lazy"
-        decoding="async"
-        className="hidden lg:block absolute -right-4 xl:-right-5 top-1/2 -translate-y-1/2 w-[520px] xl:w-[420px] max-w-[55%] pointer-events-none select-none"
+    <div className="glass-dark rounded-[2rem] p-7 lg:p-8 border-champagne-subtle shadow-cinematic h-full flex flex-col gap-5 transition-transform duration-300 hover:-translate-y-1">
+      <div
+        className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+        style={{ background: 'rgba(255,202,2,0.12)', border: '1px solid rgba(255,202,2,0.25)' }}
+      >
+        <Icon size={18} className="text-champagne" />
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <h3 className="text-lg font-bold text-ivory leading-tight">{title}</h3>
+        <p className="text-sm text-ivory/60 leading-relaxed">{desc}</p>
+      </div>
+
+      <div
+        className="h-px w-full"
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.28), transparent)' }}
       />
 
-      <div className="relative section-label mb-1">¿Por qué elegirnos?</div>
-      <h3 className="relative text-xl font-bold text-ivory">Resultados profesionales<br />en cada impresión</h3>
-
-      <div className="relative flex flex-col gap-3 flex-1 lg:max-w-[50%]">
-        {BENEFITS.map((b, i) => (
-          <div key={i} className="benefit-item flex items-start gap-3">
+      <ul className="flex flex-col gap-2.5 flex-1">
+        {points.map((p, i) => (
+          <li key={i} className="flex items-start gap-2.5">
             <div
-              className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+              className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
               style={{ background: 'rgba(201,168,76,0.15)' }}
             >
-              <Check size={11} className="text-champagne" />
+              <Check size={9} className="text-champagne" />
             </div>
-            <span className="text-xs text-ivory/70 leading-relaxed">{b}</span>
-          </div>
+            <span className="text-xs text-ivory/75 leading-relaxed">{p}</span>
+          </li>
         ))}
-      </div>
-
-      <div
-        className="relative rounded-2xl px-4 py-3 mt-auto"
-        style={{ background: 'rgba(201,168,76,0.08)', border: '1px solid rgba(201,168,76,0.2)' }}
-      >
-        <span className="font-mono-ui text-[10px] text-champagne tracking-widest">Es la calidad que nos representa.</span>
-      </div>
-    </div>
-  )
-}
-
-function MetricHero() {
-  return (
-    <div className="relative glass-dark rounded-[2rem] p-8 lg:p-10 border-champagne-subtle shadow-cinematic h-full flex flex-col justify-between gap-6 overflow-hidden transition-transform duration-300 hover:-translate-y-1">
-      <div
-        className="decor-blur absolute -top-20 -right-20 w-64 h-64 rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(255,202,2,0.18) 0%, transparent 65%)', filter: 'blur(10px)' }}
-      />
-
-      <div className="relative flex items-center justify-between">
-        <div className="section-label">Durabilidad garantizada</div>
-        <div
-          className="w-10 h-10 rounded-xl flex items-center justify-center"
-          style={{ background: 'rgba(255,202,2,0.12)', border: '1px solid rgba(255,202,2,0.25)' }}
-        >
-          <Shield size={16} className="text-champagne" />
-        </div>
-      </div>
-
-      <div className="relative flex items-end gap-4">
-        <span className="font-display text-7xl lg:text-8xl text-gradient-champagne leading-none">+60</span>
-        <div className="flex flex-col pb-2">
-          <span className="text-ivory font-semibold leading-tight">lavados</span>
-          <span className="font-mono-ui text-[10px] text-ivory/45 tracking-widest">SIN PERDER COLOR</span>
-        </div>
-      </div>
-
-      <div className="relative flex items-center gap-3 pt-3 border-t" style={{ borderColor: 'rgba(255,202,2,0.15)' }}>
-        <Activity size={13} className="text-champagne" />
-        <span className="text-xs text-ivory/60">Probado en producción real</span>
-      </div>
-    </div>
-  )
-}
-
-function Tile({ icon: Icon, title, desc }) {
-  return (
-    <div className="group glass-dark rounded-2xl p-5 border-champagne-subtle shadow-cinematic flex flex-col gap-3 h-full transition-all duration-300 hover:-translate-y-1 hover:border-champagne/40">
-      <div
-        className="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
-        style={{ background: 'rgba(255,202,2,0.1)', border: '1px solid rgba(255,202,2,0.2)' }}
-      >
-        <Icon size={16} className="text-champagne" />
-      </div>
-      <div>
-        <div className="text-sm font-semibold text-ivory leading-tight">{title}</div>
-        <div className="font-mono-ui text-[10px] text-ivory/45 tracking-wider mt-1">{desc}</div>
-      </div>
+      </ul>
     </div>
   )
 }
@@ -158,6 +135,7 @@ export default function Features() {
         className="decor-blur absolute top-1/3 right-0 w-[520px] h-[520px] pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(255,202,2,0.08) 0%, transparent 65%)', filter: 'blur(20px)' }}
       />
+
       <div className="relative max-w-7xl mx-auto">
         <div className="features-title text-center mb-16">
           <p className="section-label mb-4">Tecnología DTF · Colombia</p>
@@ -167,18 +145,13 @@ export default function Features() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 auto-rows-auto">
-          <div className="feature-cell col-span-2 lg:col-span-2 lg:row-span-3">
-            <MeritsCard />
-          </div>
-
-          <div className="feature-cell col-span-2 lg:col-span-2">
-            <MetricHero />
-          </div>
-
-          {TILES.map((t, i) => (
-            <div key={i} className="feature-cell col-span-1 lg:col-span-1">
-              <Tile {...t} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {SERVICES.map((s, i) => (
+            <div
+              key={i}
+              className={`feature-cell ${i === 4 ? 'md:col-span-2 lg:col-span-1' : ''}`}
+            >
+              <ServiceCard {...s} />
             </div>
           ))}
         </div>

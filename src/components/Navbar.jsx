@@ -14,7 +14,7 @@ function NavLink({ href, label, onClick }) {
     <a
       href={href}
       onClick={onClick}
-      className="font-mono-ui text-xs tracking-widest text-white/75 hover:text-champagne transition-colors duration-200"
+      className="font-mono-ui text-[15px] tracking-widest text-white/75 hover:text-champagne transition-colors duration-200 px-3 py-2 -mx-1 rounded-md"
     >
       {label}
     </a>
@@ -133,7 +133,7 @@ export default function Navbar() {
               key={label}
               href={href}
               onClick={() => setOpen(false)}
-              className="font-mono-ui text-xs tracking-widest text-white/75 hover:text-champagne transition-colors w-full text-center"
+              className="font-mono-ui text-[13px] tracking-widest text-white/75 hover:text-champagne transition-colors w-full text-center"
             >
               {label}
             </a>

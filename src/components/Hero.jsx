@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
-import { ArrowRight, Sparkles } from 'lucide-react'
+import { ArrowRight, Truck } from 'lucide-react'
 
 const WORDS = ['Precisión', 'Colores', 'Calidad', 'Impacto', 'Durabilidad', 'Branding']
 
@@ -140,9 +140,27 @@ export default function Hero() {
         className="relative flex flex-col items-center text-center gap-8 w-full max-w-2xl mx-auto px-6 pt-36 pb-28"
         style={{ zIndex: 3 }}
       >
-        <div className="hero-badge flex items-center gap-2 glass-dark px-4 py-2 rounded-full">
-          <Sparkles size={11} className="text-champagne" />
-          <span className="section-label">Envíos nacionales</span>
+        <div
+          className="hero-badge flex items-center gap-2.5 px-4 py-2 rounded-full"
+          style={{
+            background: 'rgba(255,255,255,0.09)',
+            backdropFilter: 'blur(10px)',
+            WebkitBackdropFilter: 'blur(10px)',
+            border: '1px solid rgba(255,255,255,0.14)',
+            boxShadow: '0 4px 18px rgba(0,0,0,0.18)',
+          }}
+        >
+          <Truck size={13} className="text-champagne" />
+          <span
+            className="font-mono-ui uppercase"
+            style={{
+              fontSize: '0.65rem',
+              letterSpacing: '0.2em',
+              color: '#FFFFFF',
+            }}
+          >
+            Envíos a todo Colombia
+          </span>
         </div>
 
         <div className="flex flex-col gap-0.5">
