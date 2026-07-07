@@ -227,8 +227,8 @@ export default function Hero() {
           </div>
           <div className="h-6 w-px" style={{ background: 'rgba(255,202,2,0.18)' }} />
           <div className="flex flex-col items-center gap-0.5">
-            <span className="font-mono-ui text-xs text-champagne tracking-wider">Envío nacional</span>
-            <span className="font-mono-ui text-[10px] text-white/45 tracking-wider">todo Colombia</span>
+            <span className="font-mono-ui text-xs text-champagne tracking-wider">Cobertura</span>
+            <span className="font-mono-ui text-[10px] text-white/45 tracking-wider">nacional</span>
           </div>
         </div>
       </div>

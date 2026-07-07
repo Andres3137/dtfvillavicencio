@@ -121,6 +121,7 @@ function ProductModal({ item, onClose }) {
   useEffect(() => {
     if (!item) return
     document.body.style.overflow = 'hidden'
+    document.body.classList.add('modal-open')
     gsap.fromTo(overlayRef.current, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: 'power2.out' })
     gsap.fromTo(
       cardRef.current,
@@ -131,6 +132,7 @@ function ProductModal({ item, onClose }) {
     window.addEventListener('keydown', onKey)
     return () => {
       document.body.style.overflow = ''
+      document.body.classList.remove('modal-open')
       window.removeEventListener('keydown', onKey)
     }
   }, [item])
