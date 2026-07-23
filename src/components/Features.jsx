@@ -137,7 +137,16 @@ export default function Features() {
       />
 
       <div className="relative max-w-7xl mx-auto">
-        <div className="features-title text-center mb-16">
+        <div className="features-title text-center mb-16 relative">
+          <img
+            src="/assets/sticker_planet_v3.png"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+            className="pointer-events-auto select-none absolute z-10 w-[110px] md:w-[160px] -top-8 right-[6%] md:-top-6 md:right-[4%] rotate-[10deg] transition-transform duration-500 ease-out hover:-translate-y-1.5 hover:rotate-[4deg] hover:scale-105"
+            style={{ filter: 'drop-shadow(0 10px 18px rgba(0,0,0,0.3)) drop-shadow(0 3px 6px rgba(0,0,0,0.2))', willChange: 'transform' }}
+          />
           <p className="section-label mb-4">Tecnología DTF · Colombia</p>
           <h2 className="text-4xl md:text-5xl font-bold font-display text-white">
             Calidad que se ve,<br />

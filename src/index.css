@@ -2,6 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi-300.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi-900.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   * {
     box-sizing: border-box;
@@ -52,7 +88,7 @@
   }
 
   .text-gradient-champagne {
-    background: linear-gradient(135deg, #D99A00 0%, #F5B400 50%, #D99A00 100%);
+    background: linear-gradient(135deg, #D99A00 0%, #FFCA02 50%, #D99A00 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -168,7 +204,7 @@
 
   .btn-ghost:hover {
     border-color: rgba(255, 202, 2, 0.9);
-    color: #B8860B;
+    color: #D99A00;
     box-shadow: 0 0 20px rgba(255, 202, 2, 0.18);
   }
 
@@ -178,7 +214,7 @@
     font-size: 0.65rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #B8860B;
+    color: #D99A00;
   }
 
   .whatsapp-fab {

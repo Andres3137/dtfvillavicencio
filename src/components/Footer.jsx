@@ -58,11 +58,10 @@ export default function Footer() {
               href={WA_HREF}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 self-start px-5 py-2.5 rounded-full font-mono-ui text-[11px] tracking-widest transition-all duration-300 hover:scale-[1.02]"
-              style={{ background: '#FFCA02', color: '#0D0D12', boxShadow: '0 8px 32px rgba(255,202,2,0.25)' }}
+              className="btn-primary btn-magnetic inline-flex items-center gap-2 self-start"
             >
               <MessageCircle size={13} />
-              COTIZAR POR WHATSAPP
+              Cotizar por WhatsApp
               <ArrowUpRight size={13} />
             </a>
             <div className="flex gap-2.5">

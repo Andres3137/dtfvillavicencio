@@ -172,11 +172,12 @@ export default function Hero() {
           </h1>
 
           {/* Wrapper gets GSAP entrance; inner word gets CSS transition cross-fade */}
-          <div className="hero-precision-wrap" style={{ minHeight: 'clamp(4.5rem, 10vw, 8rem)' }}>
+          <div className="hero-precision-wrap" style={{ minHeight: 'clamp(4rem, 9vw, 7.2rem)', marginTop: '-0.4rem' }}>
             <h1
               className="font-display text-gradient-champagne leading-[1.1] pb-2"
               style={{
-                fontSize: 'clamp(3.8rem, 9vw, 7rem)',
+                fontSize: 'clamp(2.75rem, 11vw, 7rem)',
+                letterSpacing: '-0.04em',
                 filter: 'drop-shadow(0 0 20px rgba(255,202,2,0.22))',
                 opacity: visible ? 1 : 0,
                 transform: visible ? 'translateY(0)' : 'translateY(-5px)',

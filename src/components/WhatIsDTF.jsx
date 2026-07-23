@@ -96,7 +96,7 @@ export default function WhatIsDTF() {
             onMouseLeave={tilt.onMouseLeave}
           >
             <img
-              src="/assets/dtf_impresion_industrial.webp"
+              src="/assets/dtfimagen.jpeg"
               alt="DTF Textil profesional"
               loading="lazy"
               decoding="async"
